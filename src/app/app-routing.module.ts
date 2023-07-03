@@ -4,7 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PrivateComponent } from './components/private/private.component';
 
-const ruter: Routes = [
+const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
@@ -13,7 +13,7 @@ const ruter: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(ruter)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PrivateComponent } from './private.component';
+import { CallbackComponent } from './callback.component';
 
-describe('PrivateComponent', () => {
-  let component: PrivateComponent;
-  let fixture: ComponentFixture<PrivateComponent>;
+describe('CallbackComponent', () => {
+  let component: CallbackComponent;
+  let fixture: ComponentFixture<CallbackComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PrivateComponent ]
+      declarations: [ CallbackComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PrivateComponent);
+    fixture = TestBed.createComponent(CallbackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

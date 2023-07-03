@@ -27,5 +27,10 @@ npm install @auth0/auth0-angular
 6
 ng g c components/navbar
 
-
+7
+auth0 on web..
+allowed web origins -->
+https://localhost:4200
+callback url -->
+https://localhost:4200/callback
 
