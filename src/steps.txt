@@ -25,6 +25,7 @@ auth0 import to module
 npm install @auth0/auth0-angular
   import, declare/register forRoot)
 6
+ng g c components/navbar
 
 
 
