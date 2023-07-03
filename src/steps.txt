@@ -1,5 +1,6 @@
 1
 ng new authApp
+
 2
 bootstrapping
   npm install bootstrap@latest --save
@@ -7,12 +8,23 @@ bootstrapping
   npm install popper.js@latest --save
 
   add scripts and styles
+
 3
 npm install --save auth0-js
   scripts:["node_modules/auth0-js/dist/auth0.js"]
+
 4
 ng g s services/auth
+
 5
+auth0 import to service
+npm i --save-dev @types/auth0-js
+
+(5
+auth0 import to module
 npm install @auth0/auth0-angular
+  import, declare/register forRoot)
+6
+
 
 
