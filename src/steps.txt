@@ -1,0 +1,16 @@
+1
+ng new authApp
+2
+bootstrapping
+  npm install bootstrap@latest --save
+  npm install jquery@latest --save
+  npm install popper.js@latest --save
+
+  add scripts and styles
+3
+npm install --save auth0-js
+  scripts:["node_modules/auth0-js/dist/auth0.js"]
+4
+
+
+
