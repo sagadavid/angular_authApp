@@ -9,10 +9,17 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PrivateComponent } from './components/private/private.component';
+
 // import { AuthModule } from '@auth0/auth0-angular';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HomeComponent, AboutComponent, PrivateComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    HomeComponent,
+    AboutComponent,
+    PrivateComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
