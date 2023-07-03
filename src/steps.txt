@@ -11,6 +11,8 @@ bootstrapping
 npm install --save auth0-js
   scripts:["node_modules/auth0-js/dist/auth0.js"]
 4
-
+ng g s services/auth
+5
+npm install @auth0/auth0-angular
 
 
