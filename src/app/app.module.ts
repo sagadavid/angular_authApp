@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PrivateComponent } from './components/private/private.component';
 import { CallbackComponent } from './components/callback/callback.component';
+import { AuthModule } from '@auth0/auth0-angular';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,17 @@ import { CallbackComponent } from './components/callback/callback.component';
     PrivateComponent,
     CallbackComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AuthModule.forRoot({
+      clientId: 'ooh1vWjdGosg3MEcLrN3QshzO3y0QaeW',
+      domain: 'dev-sbuzcsubxvefrita.us.auth0.com',
+      authorizationParams: {
+        redirect_uri: 'http://localhost:4200/callback',
+      },
+    }),
+  ],
   providers: [AuthService],
   bootstrap: [AppComponent],
 })

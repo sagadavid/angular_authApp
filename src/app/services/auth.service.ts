@@ -16,7 +16,7 @@ export class AuthService {
     domain: 'dev-sbuzcsubxvefrita.us.auth0.com',
     responseType: 'token id_token',
     redirectUri: 'http://localhost:4200/callback',
-    scope: 'openid profile', //allows access to the proϐile of the logged in user
+    // scope: 'openid profile', //allows access to the proϐile of the logged in user
   });
 
   constructor(public router: Router) {
