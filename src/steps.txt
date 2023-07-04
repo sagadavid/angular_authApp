@@ -34,3 +34,6 @@ https://localhost:4200
 callback url -->
 https://localhost:4200/callback
 
+8
+ng g guard services/auth
+  CanActivate

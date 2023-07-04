@@ -21,6 +21,7 @@
       <li class="nav-item" routerLinkActive="Active">
         <a class="nav-link" [routerLink]="['about']">About</a>
       </li>
+      <!-- activate private link when authenticated -->
       <li
         *ngIf="auth.isAuthenticated()"
         class="nav-item"
