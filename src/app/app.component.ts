@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     if (this.auth.isAuthenticated()) {
-      // this.auth.renewTokens ();
+      // this.auth.renewTokens ();//uncomment for manual log in
     }
   }
 }

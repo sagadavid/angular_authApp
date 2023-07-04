@@ -51,10 +51,13 @@ export class AuthService {
 
   private localLogin(authResult: any): void {
     // Set the time that the access token will expire at
-    const expiresAt = authResult.expiresIn * 1000 + Date.now();
-    this._accessToken = authResult.accessToken;
-    this._idToken = authResult.idToken;
-    this._expiresAt = expiresAt;
+    const expiresAt = JSON.stringify(
+      authResult.expiresIn * 1000 + new Date().getTime()
+    );
+    //saving those variables to local to keep functioning on page refresh
+    localStorage.setItem('access_token', authResult.accessToken);
+    localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem('expires_at', expiresAt);
   }
 
   public renewTokens(): void {
@@ -75,12 +78,16 @@ export class AuthService {
     this._accessToken = '';
     this._idToken = '';
     this._expiresAt = 0;
-    // Go back to the home route
+    // Remove tokens and expiry time from localStorage
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expires_at');
+    //remove server sso session
     this.router.navigate(['/']);
   }
 
   public isAuthenticated(): boolean {
-    // Check whether the current time is past the access token's expiry time
-    return !!this._accessToken && Date.now() < this._expiresAt; //In this updated code, the !! operator is used to convert the value of _accessToken to a boolean.
+    const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
+    return new Date().getTime() < expiresAt;
   }
 }
