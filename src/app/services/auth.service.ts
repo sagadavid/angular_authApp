@@ -9,13 +9,14 @@ export class AuthService {
   private _idToken: string;
   private _accessToken: string;
   private _expiresAt: number;
+  userProfile: any;
 
   auth0 = new auth0.WebAuth({
     clientID: 'ooh1vWjdGosg3MEcLrN3QshzO3y0QaeW',
     domain: 'dev-sbuzcsubxvefrita.us.auth0.com',
     responseType: 'token id_token',
     redirectUri: 'http://localhost:4200/callback',
-    scope: 'openid',
+    scope: 'openid profile', //allows access to the proϐile of the logged in user
   });
 
   constructor(public router: Router) {
@@ -89,5 +90,19 @@ export class AuthService {
   public isAuthenticated(): boolean {
     const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
     return new Date().getTime() < expiresAt;
+  }
+  public getProfile(cb: any): void {
+    this._accessToken = localStorage.getItem('access_token') ?? '';
+    if (!this._accessToken) {
+      throw new Error('Access Token must exist to fetch profile');
+    }
+
+    const self = this;
+    this.auth0.client.userInfo(this._accessToken, (err, profile) => {
+      if (profile) {
+        self.userProfile = profile;
+      }
+      cb(err, profile);
+    });
   }
 }
